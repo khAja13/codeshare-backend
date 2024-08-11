@@ -1,7 +1,5 @@
 const { createServer } = require('node:http');
-const { Server } = require('socket.io')({
-  allowEIO3: true
-});
+const { Server } = require('socket.io');
 const express = require('express');
 const cors = require("cors");
 
