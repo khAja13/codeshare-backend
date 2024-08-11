@@ -7,15 +7,17 @@ const app = express();
 const server = createServer(app);
 
 app.use(cors({
-  origin: 'https://codeshare-frontend.vercel.app/',
+  origin: 'https://codeshare-frontend.vercel.app',
   methods: ["GET", "POST"],
   allowedHeaders: "*",
+  credentials: true
 }));
 
 const io = new Server(server, {
   cors: {
     origin: 'https://codeshare-frontend.vercel.app',
     methods: ["GET", "POST"],
+    credentials: true
   }
 });
 
