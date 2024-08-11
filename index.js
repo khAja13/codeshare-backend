@@ -9,14 +9,14 @@ const app = express();
 const server = createServer(app);
 
 app.use(cors({
-  origin: 'http://localhost:5173/',
+  origin: 'https://codeshare-frontend.vercel.app/',
   methods: ["GET", "POST"],
   allowedHeaders: "*",
 }));
 
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:5173/',
+    origin: 'https://codeshare-frontend.vercel.app',
     methods: ["GET", "POST"],
   }
 });
