@@ -1,23 +1,23 @@
 const { createServer } = require('node:http');
 const { Server } = require('socket.io');
 const express = require('express');
-const cors = require("cors");
+const cors = require('cors');
 
 const app = express();
 const server = createServer(app);
 
 app.use(cors({
   origin: 'https://codeshare-frontend.vercel.app',
-  methods: ["GET", "POST"],
-  allowedHeaders: "*",
-  credentials: true
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+  credentials: true,
 }));
 
 const io = new Server(server, {
   cors: {
     origin: 'https://codeshare-frontend.vercel.app',
-    methods: ["GET", "POST"],
-    credentials: true
+    methods: ['GET', 'POST'],
+    credentials: true,
   }
 });
 
@@ -40,5 +40,5 @@ io.on('connection', (socket) => {
 });
 
 server.listen(3000, () => {
-  console.log('server running at http://localhost:3000');
+  console.log('Server running at http://localhost:3000');
 });
