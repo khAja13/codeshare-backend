@@ -15,9 +15,11 @@ app.use(cors({
 
 const io = new Server(server, {
   cors: {
-    origin: 'https://codeshare-frontend.vercel.app',
-    methods: ['GET', 'POST'],
+    origin: "https://codeshare-frontend.vercel.app",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
     credentials: true,
+    transports: ['websocket', 'polling']
   }
 });
 
